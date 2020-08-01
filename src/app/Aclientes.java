@@ -7,14 +7,14 @@ package app;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
-import java.sql.Date;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author JESUS
+ * @author JESUS BARRIOS
  */
 public class Aclientes extends javax.swing.JFrame {
 public static final String URL="jdbc:mysql://localhost:3306/videotienda";

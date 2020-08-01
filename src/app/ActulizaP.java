@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author JESUS
+ * @author JESUS BARRIOS
  */
 public class ActulizaP extends javax.swing.JFrame {
 public static final String URL="jdbc:mysql://localhost:3306/videotienda";
@@ -197,7 +197,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
     }//GEN-LAST:event_btnlimpiarpActionPerformed
 
     private void btnActulizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulizaActionPerformed
-         //Connection con=null;
+        
         
       
          

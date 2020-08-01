@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author JESUS
+ * @author JESUS BARRIOS
  */
 public class AlquilarPelicula extends javax.swing.JFrame {
 public static final String URL="jdbc:mysql://localhost:3306/videotienda";

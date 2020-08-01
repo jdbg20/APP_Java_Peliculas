@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author JESUS
+ * @author JESUS BARRIOS
  */
 public class DetalleBoleto extends javax.swing.JFrame {
 

@@ -7,7 +7,7 @@ package app;
 
 /**
  *
- * @author JESUS
+ * @author JESUS BARRIOS
  */
 public class home extends javax.swing.JFrame {
 

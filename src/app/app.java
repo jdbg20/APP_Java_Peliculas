@@ -9,11 +9,16 @@ package app;
  *
  * @author JESUS
  */
+
+
+
+
+
 public class app {
     
     public static void main(String[] args){
-        home welcome = new home();
-        welcome.setVisible(true);
+        login l = new login();
+        l.setVisible(true);
         
     }
     

@@ -14,7 +14,11 @@ import javax.swing.JOptionPane;
 
 /**
  *
+<<<<<<< HEAD
  * @author JESUS BARRIOS
+=======
+ * @author JESUS
+>>>>>>> 6966dd7fd767c91a2b9ef8632c1d0aa9e0b929e2
  */
 public class DetalleBoleto extends javax.swing.JFrame {
 

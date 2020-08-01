@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author JESUS
  */
-public class clientes extends javax.swing.JFrame {
+public class Aclientes extends javax.swing.JFrame {
 public static final String URL="jdbc:mysql://localhost:3306/videotienda";
      public static final String USERNAME= "root";
      public static final String PASSWORD="";
@@ -48,7 +48,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
          
      } 
     
-    public clientes() {
+    public Aclientes() {
         initComponents();
     }
 
@@ -78,14 +78,13 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         txtdireccion = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
         txtcelular = new javax.swing.JTextField();
-        btnregistrar = new javax.swing.JButton();
-        brnlimpiar = new javax.swing.JButton();
+        btnActulizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("REGISTRO DE CLIENTE");
+        jLabel1.setText("ACTULIZAR CLIENTE");
 
         jLabel2.setText("ID_CLIENTE:");
 
@@ -103,17 +102,10 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
 
         jLabel9.setText("CELULAR:");
 
-        btnregistrar.setText("Registrar");
-        btnregistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnActulizar.setText("Actulizar");
+        btnActulizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregistrarActionPerformed(evt);
-            }
-        });
-
-        brnlimpiar.setText("Limpiar");
-        brnlimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnlimpiarActionPerformed(evt);
+                btnActulizarActionPerformed(evt);
             }
         });
 
@@ -138,51 +130,50 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(153, 153, 153)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(153, 153, 153)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(116, 116, 116)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4))))
+                                .addGap(69, 69, 69)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtidcliente)
+                                    .addComponent(txtnombres)
+                                    .addComponent(txtpapellido)
+                                    .addComponent(txtsapellido)
+                                    .addComponent(txtdocumento)
+                                    .addComponent(txtdireccion)
+                                    .addComponent(txttelefono)
+                                    .addComponent(txtcelular, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4))))
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtidcliente)
-                            .addComponent(txtnombres)
-                            .addComponent(txtpapellido)
-                            .addComponent(txtsapellido)
-                            .addComponent(txtdocumento)
-                            .addComponent(txtdireccion)
-                            .addComponent(txttelefono)
-                            .addComponent(txtcelular, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                .addComponent(btnActulizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar)))
                         .addGap(36, 36, 36)
                         .addComponent(btnbuscar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(btnregistrar)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(brnlimpiar)))
+                        .addGap(311, 311, 311)
+                        .addComponent(jLabel1)))
                 .addContainerGap(264, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addGap(113, 113, 113)
                 .addComponent(jLabel1)
-                .addGap(42, 42, 42)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtidcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,8 +208,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                     .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(brnlimpiar)
-                    .addComponent(btnregistrar)
+                    .addComponent(btnActulizar)
                     .addComponent(btnEliminar))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
@@ -226,29 +216,28 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
-        // TODO add your handling code here:
-        
-        // Connection con=null;
+    private void btnActulizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulizarActionPerformed
+          
         
         
-      
         try{
           con = getConection();   
-          ps= (PreparedStatement) con.prepareStatement("INSERT INTO cliente(idCliente,nombre,apellido1,apellido2,documento,direccion,telefono,celular) VALUE(?,?,?,?,?,?,?,?)");
-          ps.setString(1,txtidcliente.getText());
-          ps.setString(2,txtnombres.getText());
-          ps.setString(3,txtpapellido.getText());
-          ps.setString(4,txtsapellido.getText());
-          ps.setString(5,txtdocumento.getText());
-          ps.setString(6,txtdireccion.getText());
-          ps.setString(7,txttelefono.getText());
-          ps.setString(8,txtcelular.getText());
+          ps= (PreparedStatement) con.prepareStatement("UPDATE cliente  SET nombre =?, apellido1=?,apellido2=?,documento=?,direccion=?,telefono=?,celular=?  WHERE idCliente=?  ");
+          ps.setString(8,txtidcliente.getText());
+          ps.setString(1,txtnombres.getText());
+         ps.setString(2,txtpapellido.getText());
+         ps.setString(3,txtsapellido.getText());
+          ps.setInt(4,Integer.parseInt(txtdocumento.getText()));
+          ps.setString(5,txtdireccion.getText());
+          ps.setString(6,txttelefono.getText());
+          ps.setString(7,txtcelular.getText());
           
           int res=ps.executeUpdate();
+            
+                      
           if(res>0){
               limpiar();
-              JOptionPane.showMessageDialog(null,"Registro Existoso");
+              JOptionPane.showMessageDialog(null,"Registro Actulizado");
                con.close();
               
           }else{
@@ -261,12 +250,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
             JOptionPane.showMessageDialog(null, "Su Documento de Identificacion ya esta Registrado. ");
         }   
         
-    }//GEN-LAST:event_btnregistrarActionPerformed
-
-    private void brnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnlimpiarActionPerformed
-        // TODO add your handling code here:
-        limpiar();
-    }//GEN-LAST:event_brnlimpiarActionPerformed
+    }//GEN-LAST:event_btnActulizarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
@@ -352,29 +336,29 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new clientes().setVisible(true);
+                new Aclientes().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnlimpiar;
+    private javax.swing.JButton btnActulizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btnregistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

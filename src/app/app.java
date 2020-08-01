@@ -9,19 +9,13 @@ package app;
  *
  * @author JESUS
  */
-public class peliculas {
-    
-    
+public class app {
     
     public static void main(String[] args){
-        
-        
-        
-        
-        
-        
-        
+        home welcome = new home();
+        welcome.setVisible(true);
         
     }
+    
     
 }

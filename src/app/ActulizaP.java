@@ -6,6 +6,7 @@
 package app;
 
 import static app.clientes.getConection;
+import static app.pelicula.getConection;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.DriverManager;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author JESUS
  */
-public class pelicula extends javax.swing.JFrame {
+public class ActulizaP extends javax.swing.JFrame {
 public static final String URL="jdbc:mysql://localhost:3306/videotienda";
      public static final String USERNAME= "root";
      public static final String PASSWORD="";
@@ -35,7 +36,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         }
         return con;
     }
-    public pelicula() {
+    public ActulizaP() {
         initComponents();
     }
     
@@ -48,13 +49,11 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
     
      private void limpiar(){
          txtidpelicula.setText(null);
-         txttitulo.setText(null);
-         cbxtipo.setSelectedIndex(0);
+        
          cbxcategoria.setSelectedIndex(0);
-         txtactor.setText(null);
+         
          txtprecio.setText(null);
-         txtstock.setText(null);
-         txtsaldo.setText(null);
+        
      }
      
     
@@ -64,65 +63,41 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtidpelicula = new javax.swing.JTextField();
-        txttitulo = new javax.swing.JTextField();
-        txtactor = new javax.swing.JTextField();
         txtprecio = new javax.swing.JTextField();
-        cbxtipo = new javax.swing.JComboBox<>();
         cbxcategoria = new javax.swing.JComboBox<>();
-        txtstock = new javax.swing.JTextField();
-        txtsaldo = new javax.swing.JTextField();
-        btnRpelicula = new javax.swing.JButton();
         btnlimpiarp = new javax.swing.JButton();
+        btnActuliza = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        cbxtipo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("REGISTRO DE PELICULA");
+        jLabel1.setText("ACTULIZAR PRECIO DE CATEGORIA");
 
         jLabel2.setText("ID_PELICULA:");
 
-        jLabel3.setText("TITULO:");
-
-        jLabel4.setText("TIPO:");
-
         jLabel5.setText("CATEGORIA:");
 
-        jLabel6.setText("ACTOR PRINCIPAL:");
-
-        jLabel7.setText("PRECIO ACTUAL:");
-
-        jLabel8.setText("STROCK:");
-
-        jLabel9.setText("SALDO:");
-
-        cbxtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Comedia", "Acción", "Terror", "Drama", " " }));
-        cbxtipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxtipoActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("NUEVO PRECIO :");
 
         cbxcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Estreno", "Normal", "Clasico", "" }));
-
-        btnRpelicula.setText("Registrar");
-        btnRpelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRpeliculaActionPerformed(evt);
-            }
-        });
 
         btnlimpiarp.setText("limpiar");
         btnlimpiarp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnlimpiarpActionPerformed(evt);
+            }
+        });
+
+        btnActuliza.setText("Actulizar");
+        btnActuliza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActulizaActionPerformed(evt);
             }
         });
 
@@ -133,6 +108,17 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
             }
         });
 
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        cbxtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Comedia", "Acción", "Terror", "Drama", " " }));
+
+        jLabel3.setText("TIPO:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,38 +126,37 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
             .addGroup(layout.createSequentialGroup()
                 .addGap(210, 210, 210)
                 .addComponent(jLabel1)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(91, 91, 91)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtidpelicula)
-                            .addComponent(txttitulo)
-                            .addComponent(txtactor)
-                            .addComponent(cbxtipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtstock, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                            .addComponent(txtsaldo)
-                            .addComponent(txtprecio))
-                        .addGap(33, 33, 33)
-                        .addComponent(btnbuscar))
+                            .addComponent(jLabel3))
+                        .addGap(58, 58, 58))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnActuliza)
+                        .addGap(5, 5, 5)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(btnRpelicula)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnlimpiarp)))
-                .addGap(0, 86, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addComponent(btnlimpiarp)
+                        .addGap(203, 203, 203))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cbxtipo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtidpelicula, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxcategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, 194, Short.MAX_VALUE)
+                            .addComponent(txtprecio, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(33, 33, 33)
+                        .addComponent(btnbuscar)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,94 +168,64 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                     .addComponent(jLabel2)
                     .addComponent(txtidpelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnbuscar))
-                .addGap(28, 28, 28)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txttitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cbxtipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxtipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(cbxcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtactor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtstock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRpelicula)
-                    .addComponent(btnlimpiarp))
-                .addContainerGap(65, Short.MAX_VALUE))
+                    .addComponent(btnlimpiarp)
+                    .addComponent(btnActuliza)
+                    .addComponent(btnEliminar))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRpeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRpeliculaActionPerformed
+    private void btnlimpiarpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarpActionPerformed
         // TODO add your handling code here:
-        
-        //Connection con=null;
-        
+        limpiar();
+    }//GEN-LAST:event_btnlimpiarpActionPerformed
+
+    private void btnActulizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulizaActionPerformed
+         //Connection con=null;
         
       
-        try{
+         
+         try{
           con = getConection();   
-            ps = (PreparedStatement) con.prepareStatement("INSERT INTO pelicula(idPelicula,titulo,tipo,categoria,actorPrincipal,precioActual,stock,saldo) VALUE(?,?,?,?,?,?,?,?)");
-            ps.setString(1, txtidpelicula.getText());
-            ps.setString(2, txttitulo.getText());
-            ps.setString(3, cbxtipo.getSelectedItem().toString());
-            ps.setString(4, cbxcategoria.getSelectedItem().toString());
-            ps.setString(5, txtactor.getText());
-            ps.setInt(6, Integer.parseInt(txtprecio.getText()));
-            ps.setInt(7, Integer.parseInt(txtstock.getText()));
-            ps.setInt(8, Integer.parseInt(txtsaldo.getText()));
+            ps = (PreparedStatement) con.prepareStatement("UPDATE  pelicula SET precioActual=? WHERE idPelicula=? AND categoria=? ");
+            
+            ps.setString(2,txtidpelicula.getText());
+            ps.setInt(1, Integer.parseInt(txtprecio.getText()));
+            ps.setString(3,cbxcategoria.getSelectedItem().toString());
+           
           
           int res=ps.executeUpdate();
           if(res>0){
               limpiar();
-              JOptionPane.showMessageDialog(null,"Registro Existoso");
+              JOptionPane.showMessageDialog(null,"Registro Actulizado");
                con.close();
               
           }else{
                limpiar();
-            JOptionPane.showMessageDialog(null,"Fallo en el Registro");
+            JOptionPane.showMessageDialog(null,"La categoria no pertenece al registro");
             con.close();
         }
           
         }catch(Exception e){
             System.out.println(e);
         } 
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_btnRpeliculaActionPerformed
-
-    private void btnlimpiarpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarpActionPerformed
-        // TODO add your handling code here:
-        limpiar();
-    }//GEN-LAST:event_btnlimpiarpActionPerformed
+    }//GEN-LAST:event_btnActulizaActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
@@ -282,17 +237,15 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
             if(rs.next()){
 
                 txtidpelicula.setText(rs.getString("idPelicula"));
-                txttitulo.setText(rs.getString("titulo"));
-                cbxtipo.setSelectedItem(rs.getString("tipo"));
+                
                 cbxcategoria.setSelectedItem(rs.getString("categoria"));
-                txtactor.setText( rs.getString("actorPrincipal"));
+               
                 txtprecio.setText(rs.getString("precioActual"));
-                txtstock.setText(rs.getString("stock"));
-                txtsaldo.setText(rs.getString("saldo"));
+               
 
             }else{
                 limpiar();
-                JOptionPane.showMessageDialog(null,"No existe el cliente");
+                JOptionPane.showMessageDialog(null,"No existe la pelicula");
 
             }
 
@@ -301,9 +254,32 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         }
     }//GEN-LAST:event_btnbuscarActionPerformed
 
-    private void cbxtipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxtipoActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxtipoActionPerformed
+         try{
+            con = getConection();
+            ps = (PreparedStatement) con.prepareStatement("DELETE FROM  pelicula  WHERE idPelicula=? AND tipo=? ");
+
+            ps.setString(1,txtidpelicula.getText());
+
+            ps.setString(2,cbxtipo.getSelectedItem().toString());
+
+            int res=ps.executeUpdate();
+            if(res>0){
+                limpiar();
+                JOptionPane.showMessageDialog(null,"Registro Eliminado");
+                con.close();
+
+            }else{
+                limpiar();
+                JOptionPane.showMessageDialog(null,"La categoria no pertenece a el mismo registro que deseas eliminar");
+                con.close();
+            }
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,26 +298,28 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pelicula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActulizaP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pelicula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActulizaP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pelicula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActulizaP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pelicula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActulizaP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pelicula().setVisible(true);
+                new ActulizaP().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRpelicula;
+    private javax.swing.JButton btnActuliza;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnlimpiarp;
     private javax.swing.JComboBox<String> cbxcategoria;
@@ -349,17 +327,9 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txtactor;
     private javax.swing.JTextField txtidpelicula;
     private javax.swing.JTextField txtprecio;
-    private javax.swing.JTextField txtsaldo;
-    private javax.swing.JTextField txtstock;
-    private javax.swing.JTextField txttitulo;
     // End of variables declaration//GEN-END:variables
 }

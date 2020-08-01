@@ -9,10 +9,13 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="mboleto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mboletoActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="Registropelicula">
               <Properties>
@@ -22,6 +25,29 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistropeliculaActionPerformed"/>
               </Events>
             </MenuItem>
+            <Menu class="javax.swing.JMenu" name="jMenu3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Boleto"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menupelicula">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Boleto Pelicula"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menupeliculaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuboleto">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Detalle Boleto"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuboletoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="ActualizarPelicula">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar  y Eliminar Pelicula"/>

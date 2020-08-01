@@ -198,6 +198,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
           
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Cliente no se Encuentra Registrado");
+            
         }   
     }//GEN-LAST:event_jButton1ActionPerformed
 

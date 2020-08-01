@@ -30,8 +30,11 @@ public class home extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        mboleto = new javax.swing.JMenu();
         Registropelicula = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        menupelicula = new javax.swing.JMenuItem();
+        menuboleto = new javax.swing.JMenuItem();
         ActualizarPelicula = new javax.swing.JMenuItem();
         Registrocliente = new javax.swing.JMenuItem();
         ActulizarCliente = new javax.swing.JMenuItem();
@@ -46,7 +49,12 @@ public class home extends javax.swing.JFrame {
 
         jLabel1.setText("BIENVENIDO ");
 
-        jMenu1.setText("Archivo");
+        mboleto.setText("Archivo");
+        mboleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mboletoActionPerformed(evt);
+            }
+        });
 
         Registropelicula.setText("Registrar Pelicula");
         Registropelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -54,7 +62,27 @@ public class home extends javax.swing.JFrame {
                 RegistropeliculaActionPerformed(evt);
             }
         });
-        jMenu1.add(Registropelicula);
+        mboleto.add(Registropelicula);
+
+        jMenu3.setText("Boleto");
+
+        menupelicula.setText("Boleto Pelicula");
+        menupelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menupeliculaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menupelicula);
+
+        menuboleto.setText("Detalle Boleto");
+        menuboleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuboletoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuboleto);
+
+        mboleto.add(jMenu3);
 
         ActualizarPelicula.setText("Actualizar  y Eliminar Pelicula");
         ActualizarPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +90,7 @@ public class home extends javax.swing.JFrame {
                 ActualizarPeliculaActionPerformed(evt);
             }
         });
-        jMenu1.add(ActualizarPelicula);
+        mboleto.add(ActualizarPelicula);
 
         Registrocliente.setText("Registrar Cliente");
         Registrocliente.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +98,7 @@ public class home extends javax.swing.JFrame {
                 RegistroclienteActionPerformed(evt);
             }
         });
-        jMenu1.add(Registrocliente);
+        mboleto.add(Registrocliente);
 
         ActulizarCliente.setText("Actulizar y Eliminar Cliente");
         ActulizarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -78,9 +106,9 @@ public class home extends javax.swing.JFrame {
                 ActulizarClienteActionPerformed(evt);
             }
         });
-        jMenu1.add(ActulizarCliente);
+        mboleto.add(ActulizarCliente);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(mboleto);
 
         jMenu2.setText("Informe");
 
@@ -144,6 +172,21 @@ public class home extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_ActulizarClienteActionPerformed
 
+    private void mboletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mboletoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_mboletoActionPerformed
+
+    private void menupeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupeliculaActionPerformed
+AlquilarPelicula a = new AlquilarPelicula();
+        a.setVisible(true);
+    }//GEN-LAST:event_menupeliculaActionPerformed
+
+    private void menuboletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuboletoActionPerformed
+       DetalleBoleto d = new DetalleBoleto();
+        d.setVisible(true);
+    }//GEN-LAST:event_menuboletoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,10 +230,13 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JMenuItem Registrocliente;
     private javax.swing.JMenuItem Registropelicula;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu mboleto;
+    private javax.swing.JMenuItem menuboleto;
+    private javax.swing.JMenuItem menupelicula;
     // End of variables declaration//GEN-END:variables
 }

@@ -79,20 +79,13 @@
             <Property name="text" type="java.lang.String" value="Informe"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="Listaclientes">
+            <MenuItem class="javax.swing.JMenuItem" name="informe">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar Clientes"/>
+                <Property name="text" type="java.lang.String" value="Tablas"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MostrarPeliculas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar Peliculas"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Peliculas Alquiladas"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="informeActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -152,7 +152,7 @@ try{
               
           }else{
                
-            JOptionPane.showMessageDialog(null,"No existe Usuario");
+            JOptionPane.showMessageDialog(null,"No existe el Usuario");
             con.close();
         }
           

@@ -39,9 +39,7 @@ public class home extends javax.swing.JFrame {
         Registrocliente = new javax.swing.JMenuItem();
         ActulizarCliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        Listaclientes = new javax.swing.JMenuItem();
-        MostrarPeliculas = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        informe = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -112,14 +110,13 @@ public class home extends javax.swing.JFrame {
 
         jMenu2.setText("Informe");
 
-        Listaclientes.setText("Mostrar Clientes");
-        jMenu2.add(Listaclientes);
-
-        MostrarPeliculas.setText("Mostrar Peliculas");
-        jMenu2.add(MostrarPeliculas);
-
-        jMenuItem2.setText("Peliculas Alquiladas");
-        jMenu2.add(jMenuItem2);
+        informe.setText("Tablas");
+        informe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                informeActionPerformed(evt);
+            }
+        });
+        jMenu2.add(informe);
 
         jMenuBar1.add(jMenu2);
 
@@ -187,6 +184,12 @@ AlquilarPelicula a = new AlquilarPelicula();
         d.setVisible(true);
     }//GEN-LAST:event_menuboletoActionPerformed
 
+    private void informeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informeActionPerformed
+        // TODO add your handling code here:
+        informe info= new informe();
+        info.setVisible(true);
+    }//GEN-LAST:event_informeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -225,16 +228,14 @@ AlquilarPelicula a = new AlquilarPelicula();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ActualizarPelicula;
     private javax.swing.JMenuItem ActulizarCliente;
-    private javax.swing.JMenuItem Listaclientes;
-    private javax.swing.JMenuItem MostrarPeliculas;
     private javax.swing.JMenuItem Registrocliente;
     private javax.swing.JMenuItem Registropelicula;
+    private javax.swing.JMenuItem informe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu mboleto;
     private javax.swing.JMenuItem menuboleto;
     private javax.swing.JMenuItem menupelicula;

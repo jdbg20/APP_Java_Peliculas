@@ -10,6 +10,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -65,6 +66,7 @@ public class login extends javax.swing.JFrame {
         btnentrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("PROGRAMA DE ALQUILER PELICULA");
 
@@ -143,13 +145,16 @@ try{
            
           
          rs=ps.executeQuery();
+           
           if(rs.next()){
            
-              home welcome = new home();
-        welcome.setVisible(true);
-              limpiar();
-               con.close();
+            home welcome = new home();
+              welcome.setVisible(true);
               
+
+             
+              con.close();
+
           }else{
                
             JOptionPane.showMessageDialog(null,"No existe el Usuario");

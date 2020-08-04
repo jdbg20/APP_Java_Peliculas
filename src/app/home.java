@@ -221,6 +221,7 @@ AlquilarPelicula a = new AlquilarPelicula();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new home().setVisible(true);
+                
             }
         });
     }

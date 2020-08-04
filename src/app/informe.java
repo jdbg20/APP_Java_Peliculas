@@ -19,12 +19,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class informe extends javax.swing.JFrame {
 
-public static final String URL="jdbc:mysql://localhost:3306/videotienda";
-     public static final String USERNAME= "root";
-     public static final String PASSWORD="";
-     PreparedStatement ps,ps2;
-     ResultSet rs; 
-    private Connection con,con2;
+    public static final String URL = "jdbc:mysql://localhost:3306/videotienda";
+    public static final String USERNAME = "root";
+    public static final String PASSWORD = "";
+    PreparedStatement ps, ps2;
+    ResultSet rs;
+    private Connection con, con2;
      public static Connection getConection(){
         Connection con =null;
         try{
@@ -56,17 +56,30 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
     };
   public void limpiarP(){
       tabla.setRowCount(0);
-      tabla.setColumnCount(0);
-      click--;
+      
+      
+       tabla.setColumnCount(0);   
+      
+          click--;
+    
+      
+      
   }
    public void limpiarC(){
+      
+      
       tabla2.setRowCount(0);
-      tabla2.setColumnCount(0);
-      click--;
+      
+      tabla2.setColumnCount(0);    
+      
+      clickc--;    
+      
+      
+      
   }
    
    
-   
+ 
    
    
   public void cargarP(){
@@ -78,7 +91,12 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                 tabla.addColumn("PRECIO ACTUAL");
                 tabla.addColumn("STOCK");
                 tabla.addColumn("SALDO");
-                this.jtpelicula.setModel(tabla);
+                this.jtpelicula.setModel(tabla);   
+               
+                
+            
+               
+                
   
                 
   }
@@ -109,10 +127,8 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         jtcliente = new javax.swing.JTable();
         btncliente = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        bntlimpiar = new javax.swing.JButton();
-        bntlimpiar2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jtpelicula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -157,20 +173,6 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
 
         jLabel3.setText("LISTA DE CLIENTE");
 
-        bntlimpiar.setText("Limpiar");
-        bntlimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntlimpiarActionPerformed(evt);
-            }
-        });
-
-        bntlimpiar2.setText("Limpiar");
-        bntlimpiar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntlimpiar2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,17 +186,13 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(433, 433, 433)
-                        .addComponent(btncliente)
-                        .addGap(29, 29, 29)
-                        .addComponent(bntlimpiar2))
+                        .addComponent(btncliente))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(420, 420, 420)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnPelicula)
-                                .addGap(47, 47, 47)
-                                .addComponent(bntlimpiar)
-                                .addGap(88, 88, 88)
+                                .addGap(208, 208, 208)
                                 .addComponent(jLabel2))
                             .addComponent(jLabel3))))
                 .addContainerGap(358, Short.MAX_VALUE))
@@ -209,16 +207,13 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPelicula)
-                    .addComponent(bntlimpiar)
                     .addComponent(jLabel2))
                 .addGap(42, 42, 42)
                 .addComponent(jLabel3)
                 .addGap(64, 64, 64)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncliente)
-                    .addComponent(bntlimpiar2))
+                .addComponent(btncliente)
                 .addContainerGap(186, Short.MAX_VALUE))
         );
 
@@ -237,43 +232,36 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
             con = getConection();
            ps= (PreparedStatement) con.prepareStatement("SELECT * FROM pelicula"); 
            rs = ps.executeQuery();
-           boolean b =true; 
+           
            
               if(click==0){
-            cargarP();
-            click++;
-        }else{
-            JOptionPane.showMessageDialog(null,"La tabla esta cargada");
-        }   
-            
-            while(rs.next()){
-                datos[0]=rs.getString("idPelicula");
-                datos[1]=rs.getString("titulo");
-                datos[2]=rs.getString("tipo");
-                datos[3]=rs.getString("categoria");
-                datos[4]=rs.getString("actorPrincipal");
-                datos[5]=rs.getString("precioActual");
-                datos[6]=rs.getString("stock");
-                datos[7]=rs.getString("saldo");
-                tabla.addRow(datos);
+                cargarP();
+              while(rs.next()){
+                datos2[0]=rs.getString("idPelicula");
+                datos2[1]=rs.getString("titulo");
+                datos2[2]=rs.getString("tipo");
+                datos2[3]=rs.getString("categoria");
+                datos2[4]=rs.getString("actorPrincipal");
+                datos2[5]=rs.getString("precioActual");
+                datos2[6]=rs.getString("stock");
+                datos2[7]=rs.getString("saldo");
+                tabla.addRow(datos2);
                 } 
-            con.close();
+              
+              click++;
+              con.close();
+        }else{
+            JOptionPane.showMessageDialog(null,"Presiana Nuevamente Buscar");
+            limpiarP();
+            
+        }   
+           
+          
 
         }catch(Exception a){
             JOptionPane.showMessageDialog(null, a);
         }
     }//GEN-LAST:event_btnPeliculaActionPerformed
-
-    private void bntlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntlimpiarActionPerformed
-        // TODO add your handling code here:
-        
-        
-        limpiarP();
-    }//GEN-LAST:event_bntlimpiarActionPerformed
-
-    private void bntlimpiar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntlimpiar2ActionPerformed
-        limpiarC();
-    }//GEN-LAST:event_bntlimpiar2ActionPerformed
 
     private void btnclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteActionPerformed
         
@@ -284,31 +272,34 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         
         try{
             con2 = getConection();
-                ps2= (PreparedStatement) con2.prepareStatement("SELECT * FROM cliente"); 
-           rs = ps2.executeQuery();
+            ps2 = (PreparedStatement) con2.prepareStatement("SELECT * FROM cliente");
+            rs = ps2.executeQuery();
            
             if(clickc==0){
-            cargarC();
+                 cargarC();
+                while(rs.next()){
+                datos[0]=rs.getString("idCliente");
+                datos[1]=rs.getString("nombre");
+                datos[2]=rs.getString("apellido1");
+                datos[3]=rs.getString("apellido2");
+                datos[4]=rs.getString("documento");
+                datos[5]=rs.getString("direccion");
+                datos[6]=rs.getString("telefono");
+                datos[7]=rs.getString("celular");
+                tabla2.addRow(datos);
+                } 
             clickc++;
+             con2.close();
+             
         }else{
             JOptionPane.showMessageDialog(null,"La tabla esta cargada");
+            limpiarC();
+            
         }   
            
            
            
-            while(rs.next()){
-                datos2[0]=rs.getString("idCliente");
-                datos2[1]=rs.getString("nombre");
-                datos2[2]=rs.getString("apellido1");
-                datos2[3]=rs.getString("apellido2");
-                datos2[4]=rs.getString("documento");
-                datos2[5]=rs.getString("direccion");
-                datos2[6]=rs.getString("telefono");
-                datos2[7]=rs.getString("celular");
-                tabla2.addRow(datos2);
-                } 
-            
-con2.close();
+          
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -350,8 +341,6 @@ con2.close();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntlimpiar;
-    private javax.swing.JButton bntlimpiar2;
     private javax.swing.JButton btnPelicula;
     private javax.swing.JButton btncliente;
     private javax.swing.JLabel jLabel1;

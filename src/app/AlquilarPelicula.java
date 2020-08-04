@@ -10,6 +10,7 @@ import com.mysql.jdbc.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,6 +38,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
      
      private void limpiar(){
          txtidcliente.setText(null);
+         txtidboleta.setText(null);
          
          
      } 
@@ -44,7 +46,23 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
     public AlquilarPelicula() {
         initComponents();
     }
-
+  DefaultTableModel tabla = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int Fila, int Colum) {
+            return false;
+        }
+    };
+  public void cargar(){
+                tabla.addColumn("ID CLIENTE");
+                tabla.addColumn("NOMBRE");
+                tabla.addColumn("PRIMER APELLIDO");
+                tabla.addColumn("SEGUNDO APELLIDO");
+                this.jtcliente.setModel(tabla);
+  }
+  
+  int click=0;
+  String dato[]= new String [4];
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,11 +76,14 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         jLabel2 = new javax.swing.JLabel();
         txtidcliente = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
-        idboleta = new javax.swing.JTextField();
+        txtidboleta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jcfecha = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtcliente = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -70,7 +91,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
 
         jLabel2.setText("ID_CLIENTE:");
 
-        btnbuscar.setText("Buscar");
+        btnbuscar.setText("Mostrar");
         btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbuscarActionPerformed(evt);
@@ -90,6 +111,21 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
 
         jcfecha.setDateFormatString("yyyy-MM-dd HH:mm:ss");
 
+        jLabel5.setText("LISTA DE CLIENTES");
+
+        jtcliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jtcliente);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,14 +143,18 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                             .addComponent(jcfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(idboleta)
-                                .addComponent(txtidcliente, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))))
+                                .addComponent(txtidboleta)
+                                .addComponent(txtidcliente, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                            .addComponent(jButton1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(btnbuscar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addContainerGap(341, Short.MAX_VALUE))
+                        .addGap(319, 319, 319)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnbuscar)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,21 +167,28 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
                     .addComponent(txtidcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idboleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtidboleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel4)
-                        .addGap(81, 81, 81))
+                        .addGap(191, 191, 191))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jcfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnbuscar)
-                    .addComponent(jButton1))
-                .addContainerGap(274, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton1)
+                        .addGap(91, 91, 91)))
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnbuscar)
+                        .addGap(284, 284, 284))))
         );
 
         pack();
@@ -152,23 +199,30 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
         
          try{
           con = getConection();   
-          ps= (PreparedStatement) con.prepareStatement("SELECT * FROM cliente WHERE idCliente= ? ");
-          ps.setString(1,txtidcliente.getText());
+          ps= (PreparedStatement) con.prepareStatement("SELECT idCliente,nombre,apellido1,apellido2 FROM cliente ");
+          
             rs = ps.executeQuery();
-          if(rs.next()){
-          
-        JOptionPane.showMessageDialog(null,"Cliente Activo");
-      
-       
-          
-          }else{
-             limpiar();
-            JOptionPane.showMessageDialog(null,"No existe el cliente");
- 
-          }
-          
-          
-         
+            
+           
+            
+            
+             if(click==0){
+                 
+                 cargar();
+            click++;
+        }else{
+            JOptionPane.showMessageDialog(null,"La tabla esta cargada");
+            
+        }   
+            
+            while(rs.next()){
+                dato[0]=rs.getString("idCliente");
+                dato[1]=rs.getString("nombre");
+                dato[2]=rs.getString("apellido1");
+                dato[3]=rs.getString("apellido2");
+                tabla.addRow(dato);
+                } 
+            con.close();
          
           
         }catch(Exception e){
@@ -180,7 +234,7 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
          try{
           con = getConection();   
           ps= (PreparedStatement) con.prepareStatement("INSERT INTO boleta(NroBoleta,FechaAlquiler,idCliente) VALUE(?,?,?)");
-          ps.setString(1,idboleta.getText());
+          ps.setString(1,txtidboleta.getText());
           ps.setDate(2,new java.sql.Date(jcfecha.getDate().getTime()));
            ps.setString(3,txtidcliente.getText());
           
@@ -240,13 +294,16 @@ public static final String URL="jdbc:mysql://localhost:3306/videotienda";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JTextField idboleta;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jcfecha;
+    private javax.swing.JTable jtcliente;
+    private javax.swing.JTextField txtidboleta;
     private javax.swing.JTextField txtidcliente;
     // End of variables declaration//GEN-END:variables
 }
